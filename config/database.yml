@@ -51,4 +51,4 @@ production:
   <<: *default
   database: eat_healthy_production
   username: eat_healthy
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  password: <%= ENV['EAT_HEALTHY_DATABASE_PASSWORD'] %>
