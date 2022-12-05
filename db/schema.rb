@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2022_12_03_200216) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
-    t.string "gender", null: false
-    t.string "birth", null: false
+    t.integer "gender_id", null: false
+    t.date "birth", null: false
     t.integer "height", null: false
     t.integer "weight", null: false
     t.string "reset_password_token"
