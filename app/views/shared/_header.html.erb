@@ -24,9 +24,14 @@
 				<li><a href="subpage.html"><strong>ごあいさつ</strong><span>Greeting</span></a></li>
 				<li><a href="subpage.html"><strong>サービス概要</strong><span>Service</span></a></li>
 				<li><a href="subpage.html"><strong>弊社の取り組み</strong><span>Approach</span></a></li>
-        <li><%= link_to 'ログイン', new_user_session_path %></li>
-				<li class="last"><%= link_to '新規登録', new_user_registration_path %></li>
-			</ul>   
+        <% if user_signed_in?%>
+          <li><%= link_to 'ログアウト', user_registration_path, method: :delete %></li>
+          <li class="last"><%= link_to "#{current_user.name} さん", '#' %></li>
+        <% else %>
+          <li><%= link_to 'ログイン', new_user_session_path %></li>
+	  			<li class="last"><%= link_to '新規登録', new_user_registration_path %></li>
+        <% end %>
+      </ul>   
     </div>
 	</div> 
 </nav>
