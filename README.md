@@ -19,7 +19,7 @@
 | ------------------ | ------  | ------------------------- |
 | calorie            | string  | null: false               |
 | protein            | string  | null: false               |
-| Lipid              | string  | null: false               |
+| lipid              | string  | null: false               |
 | carbohydrate       | integer | null: false               |
 | sugar              | integer | null: false               |
 | fiber              | integer | null: false               |
