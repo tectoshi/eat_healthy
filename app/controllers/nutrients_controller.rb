@@ -4,7 +4,7 @@ class NutrientsController < ApplicationController
   end
 
   def new
-    
+    @nutrient = Nutrient.new
   end
 
 end

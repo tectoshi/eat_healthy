@@ -15,14 +15,16 @@
 
 ## nutrientsテーブル
 
-| Column             | Type    | Options                   |
-| ------------------ | ------  | ------------------------- |
-| calorie            | string  | null: false               |
-| protein            | string  | null: false               |
-| lipid              | string  | null: false               |
-| carbohydrate       | integer | null: false               |
-| sugar              | integer | null: false               |
-| fiber              | integer | null: false               |
+| Column             | Type       | Options                         |
+| ------------------ | ---------- | ------------------------------- |
+| calorie            | string     | null: false                     |
+| protein            | string     | null: false                     |
+| lipid              | string     | null: false                     |
+| carbohydrate       | integer    | null: false                     |
+| sugar              | integer    | null: false                     |
+| fiber              | integer    | null: false                     |
+| number             | integer    | null: false                     |
+| user               | references | null: false, foreign_key: true  |
 
 ### Association
 - belongs_to :user

@@ -1,8 +1,20 @@
 <%= render "shared/header" %>
 
 <body>
-
-
+<div id="wrapper">
+    <%= form_with model: @nutrient, local: true do |f| %>
+      <div class="form">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="food-input">
+          <%= f.collection_select(:food, First.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+          <%= f.collection_select(:number, Number.all, :id, :name, {}, {class:"food-number-input", id:"item-category"}) %>
+          <div class="food-number">個</div>
+        </div>
+    <% end %>
+</div>
 </body>
 
 <%= render "shared/footer" %>
