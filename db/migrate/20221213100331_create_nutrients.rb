@@ -4,10 +4,10 @@ class CreateNutrients < ActiveRecord::Migration[6.0]
       t.string     :calorie,      null: false
       t.string     :protein,      null: false
       t.string     :lipid,        null: false
-      t.integer    :carbohydrate, null: false
-      t.integer    :sugar,        null: false
-      t.integer    :fiber,        null: false
-      t.integer    :number,       null: false
+      t.string     :carbohydrate, null: false
+      t.string     :sugar,        null: false
+      t.string     :fiber,        null: false
+      t.string     :number,       null: false
       t.references :user,         null: false, foreign_key: true
       t.timestamps
     end
