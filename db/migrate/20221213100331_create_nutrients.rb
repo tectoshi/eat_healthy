@@ -7,7 +7,6 @@ class CreateNutrients < ActiveRecord::Migration[6.0]
       t.string     :carbohydrate, null: false
       t.string     :sugar,        null: false
       t.string     :fiber,        null: false
-      t.string     :number,       null: false
       t.references :user,         null: false, foreign_key: true
       t.timestamps
     end
