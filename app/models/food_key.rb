@@ -1,2 +1,0 @@
-class FoodKey < ApplicationRecord
-end

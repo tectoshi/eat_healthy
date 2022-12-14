@@ -18,26 +18,17 @@
 
 | Column             | Type       | Options                         |
 | ------------------ | ---------- | ------------------------------- |
-| calorie            | string     | null: false                     |
-| protein            | string     | null: false                     |
-| lipid              | string     | null: false                     |
-| carbohydrate       | string     | null: false                     |
-| sugar              | string     | null: false                     |
-| fiber              | string     | null: false                     |
+| name               | string     | null: false                     |
+| calorie            | float      | null: false                     |
+| protein            | float      | null: false                     |
+| lipid              | float      | null: false                     |
+| carbohydrate       | float      | null: false                     |
+| sugar              | float      | null: false                     |
+| fiber              | float      | null: false                     |
+| number             | float      | null: false                     |
 | user               | references | null: false, foreign_key: true  |
 
 ### Association
 - belongs_to :user
-- belongs_to :food_key
 
 
-## food_keyテーブル
-
-| Column             | Type       | Options                         |
-| ------------------ | ---------- | ------------------------------- |
-| food_id            | integer    | null: false                     |
-| number_id          | integer    | null: false                     |
-
-### Association
-- belongs_to :user
-- has_one :food_key
