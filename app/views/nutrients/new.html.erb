@@ -1,0 +1,21 @@
+<%= render "shared/header" %>
+
+<body>
+<div id="wrapper">
+    <%= form_with model: @nutrient, local: true do |f| %>
+      <div class="form">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="food-input">
+          <%= f.collection_select(:food_id, First.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+          <%= f.collection_select(:number_id, Number.all, :id, :name, {}, {class:"food-number-input", id:"item-category"}) %>
+          <div class="food-number">個</div>
+        </div>
+          <%= f.submit "登録する" ,class:"sell-btn" %>
+    <% end %>
+</div>
+</body>
+
+<%= render "shared/footer" %>

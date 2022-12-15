@@ -21,7 +21,7 @@
 		<div class="panel">   
     	<ul>
     		<li class="active"><a href="index.html"><strong>トップページ</strong><span>Top</span></a></li>
-				<li><a href="subpage.html"><strong>ごあいさつ</strong><span>Greeting</span></a></li>
+        <li><%= link_to '食材登録', new_nutrient_path %></li>
 				<li><a href="subpage.html"><strong>サービス概要</strong><span>Service</span></a></li>
 				<li><a href="subpage.html"><strong>弊社の取り組み</strong><span>Approach</span></a></li>
         <% if user_signed_in?%>

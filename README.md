@@ -12,17 +12,23 @@
 
 ### Association
 - has_many :nutrients
+- has_many :food_key
 
 ## nutrientsテーブル
 
-| Column             | Type    | Options                   |
-| ------------------ | ------  | ------------------------- |
-| calorie            | string  | null: false               |
-| protein            | string  | null: false               |
-| Lipid              | string  | null: false               |
-| carbohydrate       | integer | null: false               |
-| sugar              | integer | null: false               |
-| fiber              | integer | null: false               |
+| Column             | Type       | Options                         |
+| ------------------ | ---------- | ------------------------------- |
+| name               | string     | null: false                     |
+| calorie            | float      | null: false                     |
+| protein            | float      | null: false                     |
+| lipid              | float      | null: false                     |
+| carbohydrate       | float      | null: false                     |
+| sugar              | float      | null: false                     |
+| fiber              | float      | null: false                     |
+| number             | float      | null: false                     |
+| user               | references | null: false, foreign_key: true  |
 
 ### Association
 - belongs_to :user
+
+
