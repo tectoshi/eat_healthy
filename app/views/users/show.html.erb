@@ -1,0 +1,14 @@
+<%= render "shared/header" %>
+
+<body>
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+<%# 以下の1行を編集 %>
+<%= line_chart @data, width: "800px", height: "500px" %>
+<%= link_to 'New Product', new_nutrient_path %>
+
+</body>
+
+<%= render "shared/footer" %>

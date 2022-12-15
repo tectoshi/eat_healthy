@@ -10,7 +10,7 @@ class NutrientsController < ApplicationController
   def create
     @nutrient = Nutrient.new(input_sum)
     if @nutrient.save
-      redirect_to user_path(@) 
+      redirect_to user_path(@current_user) 
     else
       render :new
     end    
