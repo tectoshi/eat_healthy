@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2022_12_13_100331) do
     t.string "name", null: false
     t.integer "gender_id", null: false
     t.date "birth", null: false
-    t.integer "height", null: false
-    t.integer "weight", null: false
+    t.float "height", null: false
+    t.float "weight", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

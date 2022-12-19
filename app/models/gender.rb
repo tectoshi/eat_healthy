@@ -5,6 +5,6 @@ class Gender < ActiveHash::Base
     { id: 2, name: '女' },
     { id: 3, name: 'どちらでもない' }
   ]
-  #include ActiveHash::Associations
-  #has_many :users
+  include ActiveHash::Associations
+  has_many :users
   end
