@@ -1,20 +1,24 @@
 <%= render "shared/header" %>
 
 <body>
-<%= "#{current_user.name}さん" %>
-身長<%= %>
-体重<%= %>
-年齢<%= %>
+  <div id="wrapper">
+
+    <%= "#{current_user.name}さん" %>
+    身長<%= current_user.height %>cm
+    体重<%= current_user.weight %>kg
+    年齢<%= @age %>歳
+    適正体重<%= @best_w.round(1) %>
+    BMI<%= @bmi.round(2) %>
 
 
-<p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
 
-<h1>Products</h1>
+    <h1>今週の総栄養素</h1>
 
-<%# 以下の1行を編集 %>
-<%= bar_chart @nutrient_sum %>
-<%= link_to 'New Product', new_nutrient_path %>
-
+    <%# 以下の1行を編集 %>
+    <%= bar_chart @nutrient_graph, precision: 3, max: 100, suffix: "%" %>
+    <%= link_to 'New Product', new_nutrient_path %>
+  </div>
 </body>
 
 <%= render "shared/footer" %>
