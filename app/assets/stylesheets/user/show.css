@@ -1,0 +1,23 @@
+.show-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.graph-title {
+  font-size: 25px;
+}
+
+.personal {
+  font-size: 25px;
+}
+
+.profile {
+  font-size: 20px;
+
+}

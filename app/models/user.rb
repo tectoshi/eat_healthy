@@ -11,4 +11,6 @@ validates :weight, presence: true
 validates :birth, presence: true
 validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
 
+extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :Gender
 end

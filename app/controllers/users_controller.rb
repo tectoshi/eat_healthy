@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
+    @gender = Gender.find(current_user.gender_id).name
     get_nutrients_sum
     week_nutrient
     @nutrient_graph = {カロリー: @calorie/@cal * 100, 
@@ -12,6 +13,7 @@ class UsersController < ApplicationController
     @bmi = current_user.weight / (current_user.height/100)**2
     # 適正体重 ＝ (身長m)^2 ×22
     @best_w = (current_user.height/100)**2 * 22
+    @date = Date.today.strftime('%Y年%m月%d日')
   end
 
   private
@@ -56,6 +58,8 @@ class UsersController < ApplicationController
   def this_week
     today = Date.today
     day_of_the_week = today.wday
+    week = ["日","月","火","水","木","金","土"]
+    @wday = week[day_of_the_week]
     # 曜日毎に月曜と日曜の日付を取得
     case day_of_the_week
       # 日曜日
