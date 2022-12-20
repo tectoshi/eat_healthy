@@ -67,6 +67,7 @@ font-weight:normal;
 *************/
 .logo{
 float:left;
+font-size: 25px;
 }
 
 .logo span{display:block;}
@@ -111,6 +112,10 @@ border-bottom:2px solid #ebebeb;
 text-align:center;
 }
 
+.main-image { 
+	
+}
+
 #mainBanner img{
 max-width:100%;
 height:auto;
@@ -125,6 +130,11 @@ left:0;
 padding:5px 10px;
 line-height:1.4;
 text-align:left;
+color: #000;
+  text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+              -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+              0px 1px 0 #FFF,  0-1px 0 #FFF,
+              -1px 0 0 #FFF, 1px 0 0 #FFF;
 }
 
 .slogan h2{

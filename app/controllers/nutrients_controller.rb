@@ -8,6 +8,7 @@ class NutrientsController < ApplicationController
   end
 
   def create
+    binding.pry
     @nutrient = Nutrient.new(input_sum)
     if @nutrient.save
       redirect_to user_path(@current_user) 
