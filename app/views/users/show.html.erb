@@ -21,7 +21,7 @@
       <div class="nutrients">
         <p id="notice"><%= notice %></p>
         <h1 class="graph-title">週の推奨量との比較(%)</h1>
-        <%= bar_chart @nutrient_graph, height: "40vh", width: "80vh", precision: 3, max: 100, suffix: "%" %>
+        <%= bar_chart @nutrient_graph, height: "40vh", width: "80vh", precision: 3, max: 150, suffix: "%" %>
         <%= link_to 'New Product', new_nutrient_path %>
         <div class="nutrients-sum">
           <h1 class="graph-title">摂取予定総量</h1>
