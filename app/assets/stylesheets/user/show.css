@@ -29,3 +29,8 @@
 .nutrients-sum {
   margin-top: 20px;
 }
+
+span.week {
+  font-size: 20px;
+  margin-left: 20px;
+}

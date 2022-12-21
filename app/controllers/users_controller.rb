@@ -64,35 +64,35 @@ class UsersController < ApplicationController
     case day_of_the_week
       # 日曜日
       when 0 then
-        from = (today - 6.day).at_beginning_of_day
-        to = today.at_end_of_day
+        @from = (today - 6.day).at_beginning_of_day
+        @to = today.at_end_of_day
       # 月曜日
       when 1 then
-        from = today.at_beginning_of_day
-        to = (today + 6.day).at_end_of_day
+        @from = today.at_beginning_of_day
+        @to = (today + 6.day).at_end_of_day
       # 火曜日
       when 2 then
-        from = (today - 1.day).at_beginning_of_day
-        to = (today + 5.day).at_end_of_day
+        @from = (today - 1.day).at_beginning_of_day
+        @to = (today + 5.day).at_end_of_day
       # 水曜日
       when 3 then
-        from = (today - 2.day).at_beginning_of_day
-        to = (today + 4.day).at_end_of_day
+        @from = (today - 2.day).at_beginning_of_day
+        @to = (today + 4.day).at_end_of_day
       # 木曜日
       when 4 then
-        from = (today - 3.day).at_beginning_of_day
-        to = (today + 3.day).at_end_of_day
+        @from = (today - 3.day).at_beginning_of_day
+        @to = (today + 3.day).at_end_of_day
       # 金曜日
       when 5 then
-        from = (today - 4.day).at_beginning_of_day
-        to = (today + 2.day).at_end_of_day
+        @from = (today - 4.day).at_beginning_of_day
+        @to = (today + 2.day).at_end_of_day
       # 土曜日
       when 6 then
-        from = (today - 5.day).at_beginning_of_day
-        to = (today + 1.day).at_end_of_day
+        @from = (today - 5.day).at_beginning_of_day
+        @to = (today + 1.day).at_end_of_day
     end
     # 返り値をfrom..toの形に
-    from..to
+    @from..@to
   end
   
 end
