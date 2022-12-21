@@ -8,10 +8,11 @@
           購入した食材
           <span class="indispensable">必須</span>
         </div>
-        <% 2.times do %>
+        <% 10.times do |i| %>
         <div class="food-input">
-          <%= f.collection_select(:food_id, First.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-          <%= f.collection_select(:number_id, Number.all, :id, :name, {}, {class:"food-number-input", id:"item-category"}) %>
+          <%= f.collection_select(:"food_id_#{i}", First.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+          <%= f.collection_select(:"number_id_#{i}", Number.all, :id, :name, {}, {class:"food-number-input", id:"item-category"}) %>
+          <% i += 1 %>
           <div class="food-number">個</div>
         </div>
         <% end %>

@@ -8,9 +8,12 @@ class NutrientsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @nutrient = Nutrient.new(input_sum)
-    if @nutrient.save
+    input_nutrient_sum
+    # 送られてきたデータの数だけ保存
+    @nutrients_status.each do |nutrient|
+      @nutrient = Nutrient.create(nutrient)
+    end
+    if @nutrient.present?
       redirect_to user_path(@current_user) 
     else
       render :new
@@ -24,19 +27,44 @@ class NutrientsController < ApplicationController
 
   private
 
-  def input_sum
-    food_input = params.require(:nutrient).permit(:food_id, :number_id).merge(user_id: current_user.id)
+  def input_nutrient_sum
+    # 値の受け取り
+    food_input = params.require(:nutrient)
+                       .permit(:food_id_0, :number_id_0,
+                               :food_id_1, :number_id_1,
+                               :food_id_2, :number_id_2,
+                               :food_id_3, :number_id_3,
+                               :food_id_4, :number_id_4,
+                               :food_id_5, :number_id_5,
+                               :food_id_6, :number_id_6,
+                               :food_id_7, :number_id_7,
+                               :food_id_8, :number_id_8,
+                               :food_id_9, :number_id_9)
+                       .merge(user_id: current_user.id)
+    # food_idとnumber_idの取り出し＆配列に収納
+    input_ids = []
+    10.times do |i|
+      input_ids << {food_id: food_input[:"food_id_#{i}"], number_id: food_input[:"number_id_#{i}"]}
+    end
+    # 紐付け用user_id
     user_id = food_input[:user_id]
-    num = Number.find(food_input[:number_id]).name
-    nutrient = First.find(food_input[:food_id])
-    name = nutrient.name
-    calorie = nutrient.calorie * num
-    protein = nutrient.protein * num
-    lipid = nutrient.lipid * num
-    carbohydrate = nutrient.carbohydrate * num
-    sugar = nutrient.sugar * num
-    fiber = nutrient.fiber * num
-    nutrient_sum = {name: name, calorie: calorie, protein: protein, lipid: lipid, carbohydrate: carbohydrate, sugar: sugar, fiber: fiber, number: num, user_id: user_id}
+    # 送られたidを用いて選択された食材と個数をそれぞれ判別
+    # また個数から食材ごとの各栄養素の合計を配列に収納
+    @nutrients_status = []
+    input_ids.each do |input|
+      if input[:food_id].to_i != 0 || input[:number_id].to_i != 0
+        num = Number.find(input[:number_id]).name
+        nutrient = First.find(input[:food_id])
+        name = nutrient.name
+        calorie = nutrient.calorie * num
+        protein = nutrient.protein * num
+        lipid = nutrient.lipid * num
+        carbohydrate = nutrient.carbohydrate * num
+        sugar = nutrient.sugar * num
+        fiber = nutrient.fiber * num
+        @nutrients_status << {name: name, calorie: calorie, protein: protein, lipid: lipid, carbohydrate: carbohydrate, sugar: sugar, fiber: fiber, number: num, user_id: user_id}
+      end
+    end
   end
   
 end
