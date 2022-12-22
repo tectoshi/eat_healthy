@@ -5,11 +5,12 @@
         <%= link_to 'EatHealthy!!!!', root_path %>
 				<p class="logo-sub">健康的な食事をサポート</p>
 	</div>
+
 	<!-- / ロゴ -->
 	<!-- 電話番号+受付時間 -->
 	
   <div class="info">
-		<p class="tel"></p>
+		<p class="tel"><%= "#{current_user.name} さん" %></p>
 	</div>
 	<!-- / 電話番号+受付時間 -->
 </header>
@@ -22,11 +23,11 @@
     	<ul>
         <li><%= link_to 'トップページ', root_path %></li>
         <li><%= link_to '食材登録', new_nutrient_path %></li>
-				<li><%= link_to '食材修正', "#" %></li>
-				<li><%= link_to 'プロフィール編集', new_nutrient_path %></li>
+				<li><%#= link_to '食材修正', "#" %></li>
+				<li><%= link_to 'プロフィール編集', edit_user_registration_path %></li>
 				<% if user_signed_in?%>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-          <li class="last"><%= link_to "#{current_user.name} さん", user_path(current_user) %></li>
+          <li class="last"><%= link_to "マイページ", user_path(current_user) %></li>
         <% else %>
           <li><%= link_to 'ログイン', new_user_session_path %></li>
 	  			<li class="last"><%= link_to '新規登録', new_user_registration_path %></li>

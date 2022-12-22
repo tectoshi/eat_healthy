@@ -18,8 +18,9 @@
 		<ul class="footnav">
         <li><%= link_to 'トップページ', root_path %></li>
         <li><%= link_to '食材登録', new_nutrient_path %></li>
-				<li><%= link_to '食材修正', new_nutrient_path %></li>
+				<li><%#= link_to '食材修正', new_nutrient_path %></li>
 				<li><%= link_to 'プロフィール編集', new_nutrient_path %></li>
+				<li><%= link_to "マイページ", user_path(current_user) %></li>
 		</ul>
 		<!-- / 右側 ナビゲーション -->
 	</div>
