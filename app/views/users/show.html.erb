@@ -20,11 +20,11 @@
 
       <div class="nutrients">
         <p id="notice"><%= notice %></p>
-        <h1 class="graph-title">週の推奨量との比較(%)<span class="week"><%= "[#{@from.strftime('%d')}(月) ~ #{@to.strftime('%d')}(日)]" %></span></h1>
+        <h1 class="graph-title">現在のトータル栄養素量(%)<span class="week"><%= "[#{@from.strftime('%d')}(月) ~ #{@to.strftime('%d')}(日)]" %></span></h1>
         <%= bar_chart @nutrient_graph, height: "40vh", width: "80vh", precision: 3, max: 150, suffix: "%" %>
         <%= link_to 'New Product', new_nutrient_path %>
         <div class="nutrients-sum">
-          <h1 class="graph-title">摂取予定総量</h1>
+          <h1 class="graph-title">現在の購入総量　/　今週の理想量</h1>
             カロリー　：<%= "#{@calorie.round(1)} / #{@cal.round(1)}" %> kcal<br>
             タンパク質：<%= "#{@protein.round(1)} / #{@pro.round(1)}" %> g<br>
             脂質　　　：<%= "#{@lipid.round(1)} / #{@lip.round(1)}" %> g<br>

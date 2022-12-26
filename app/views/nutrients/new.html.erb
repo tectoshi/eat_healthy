@@ -4,6 +4,7 @@
 <div id="wrapper">
     <%= form_with model: @nutrient, local: true do |f| %>
       <div class="form">
+          <%= f.datetime_select :start_time %>
         <div class="weight-bold-text">
           購入した食材
           <span class="indispensable">必須</span>

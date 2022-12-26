@@ -10,11 +10,15 @@ class NutrientsController < ApplicationController
   def create
     input_nutrient_sum
     # 送られてきたデータの数だけ保存
-    @nutrients_status.each do |nutrient|
-      @nutrient = Nutrient.create(nutrient)
+    @nutrients_status.each do |nutrient|n
+      nut = Nutrient.create(nutrient)
+      #カレンダー表示のため@start_timeがカラムに必要
+      #paramsは普通のハッシュと混合では保存できなかった。
+      #start_timeはparamsでの保存しかできなかったので、他のデータ保存後にstart_timeだけ上書きするようにしてカバー。
+      nut.update(@start_time)
     end
-    if @nutrient.present?
-      redirect_to user_path(@current_user) 
+    if Nutrient.where(user_id: current_user.id).present?
+      redirect_to user_path(current_user) 
     else
       render :new
     end    
@@ -47,6 +51,8 @@ class NutrientsController < ApplicationController
       input_ids << {food_id: food_input[:"food_id_#{i}"], number_id: food_input[:"number_id_#{i}"]}
     end
     # 紐付け用user_id
+    @start_time = params.require(:nutrient).permit(:start_time)
+    
     user_id = food_input[:user_id]
     # 送られたidを用いて選択された食材と個数をそれぞれ判別
     # また個数から食材ごとの各栄養素の合計を配列に収納
@@ -62,9 +68,10 @@ class NutrientsController < ApplicationController
         carbohydrate = nutrient.carbohydrate * num
         sugar = nutrient.sugar * num
         fiber = nutrient.fiber * num
-        @nutrients_status << {name: name, calorie: calorie, protein: protein, lipid: lipid, carbohydrate: carbohydrate, sugar: sugar, fiber: fiber, number: num, user_id: user_id}
+        @nutrients_status << {name: name, calorie: calorie, protein: protein, lipid: lipid, carbohydrate: carbohydrate, sugar: sugar, fiber: fiber, number: num, user_id: user_id, start_time: @start_time}
       end
     end
+    
   end
   
 end

@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2022_12_13_100331) do
     t.float "sugar", null: false
     t.float "fiber", null: false
     t.float "number", null: false
+    t.datetime "start_time"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

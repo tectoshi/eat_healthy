@@ -9,6 +9,7 @@ class CreateNutrients < ActiveRecord::Migration[6.0]
       t.float      :sugar,        null: false
       t.float      :fiber,        null: false
       t.float      :number,       null: false
+      t.datetime   :start_time
       t.references :user,         null: false, foreign_key: true
       t.timestamps
     end
