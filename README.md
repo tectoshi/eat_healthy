@@ -1,34 +1,24 @@
-## usersテーブル
+# README
 
-| Column             | Type    | Options                   |
-| ------------------ | ------  | ------------------------- |
-| email              | string  | null: false, unique: true |
-| encrypted_password | string  | null: false               |
-| nickname           | string  | null: false               |
-| gender_id          | integer | null: false               |
-| height             | integer | null: false               |
-| weight             | integer | null: false               |
-| birth              | date    | null: false               |
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-### Association
-- has_many :nutrients
-- has_many :food_key
+Things you may want to cover:
 
-## nutrientsテーブル
+* Ruby version
 
-| Column             | Type       | Options                         |
-| ------------------ | ---------- | ------------------------------- |
-| name               | string     | null: false                     |
-| calorie            | float      | null: false                     |
-| protein            | float      | null: false                     |
-| lipid              | float      | null: false                     |
-| carbohydrate       | float      | null: false                     |
-| sugar              | float      | null: false                     |
-| fiber              | float      | null: false                     |
-| number             | float      | null: false                     |
-| user               | references | null: false, foreign_key: true  |
+* System dependencies
 
-### Association
-- belongs_to :user
+* Configuration
 
+* Database creation
 
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
