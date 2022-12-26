@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   
   root "nutrients#index"
   resources :nutrients
-  resources :users, only:[:show, :edit, :update]
+  resources :users
+  resources :calendars
 end
