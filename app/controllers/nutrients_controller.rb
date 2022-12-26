@@ -10,7 +10,7 @@ class NutrientsController < ApplicationController
   def create
     input_nutrient_sum
     # 送られてきたデータの数だけ保存
-    @nutrients_status.each do |nutrient|n
+    @nutrients_status.each do |nutrient|
       nut = Nutrient.create(nutrient)
       #カレンダー表示のため@start_timeがカラムに必要
       #paramsは普通のハッシュと混合では保存できなかった。
