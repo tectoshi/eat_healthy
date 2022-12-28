@@ -12,7 +12,7 @@
 
 ### Association
 - has_many :nutrients
-- has_many :food_key
+
 
 ## nutrientsテーブル
 
@@ -26,6 +26,7 @@
 | sugar              | float      | null: false                     |
 | fiber              | float      | null: false                     |
 | number             | float      | null: false                     |
+| start_time         | datetime   | null: false                     |
 | user               | references | null: false, foreign_key: true  |
 
 ### Association
