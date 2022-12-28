@@ -4,6 +4,7 @@ class Nutrient < ApplicationRecord
     validates :calorie
     validates :protein
     validates :lipid
+    validates :carbohydrate
     validates :sugar
     validates :fiber
     validates :number
